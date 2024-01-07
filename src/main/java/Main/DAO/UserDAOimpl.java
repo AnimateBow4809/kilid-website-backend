@@ -103,7 +103,6 @@ public class UserDAOimpl implements UserDAO {
     }
 
     @Override
-
     @Transactional
     public void deleteUser(NormalUser normalUser) {
         Session session = sessionFactory.unwrap(Session.class);
