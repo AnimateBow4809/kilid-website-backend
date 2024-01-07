@@ -7,11 +7,11 @@ import lombok.Data;
 @Table(name="my_users")
 public class NormalUser {
 
-    static Long idd = 1L;
+
     @Id
     @Column(name = "id")
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long userId=idd++;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long userId;
 
     @Column(name = "name")
     private String name="";

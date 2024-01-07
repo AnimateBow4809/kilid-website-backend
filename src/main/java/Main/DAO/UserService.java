@@ -4,14 +4,16 @@ import Main.classes.NormalUser;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface UserService {
     public NormalUser getUserPhone(String phoneNumber);
 
     public NormalUser getUserEmail(String email);
 
     public List<NormalUser> getUsers();
 
-    public void updateUser(NormalUser normalUser);
+    public void updateUserID(NormalUser normalUser);
+    public void updateUserPhone(NormalUser normalUser);
+    public void updateUserEmail(NormalUser normalUser);
 
     public void addUser(NormalUser normalUser);
 

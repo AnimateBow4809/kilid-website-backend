@@ -11,7 +11,7 @@ import lombok.Setter;
 @Data
 public class RealStateAgency {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "agency_id")
     private Long id;
 

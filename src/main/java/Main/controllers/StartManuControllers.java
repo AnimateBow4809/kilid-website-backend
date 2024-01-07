@@ -1,6 +1,7 @@
 package Main.controllers;
 
-import Main.DAO.UserDAO;
+
+import Main.DAO.UserService;
 import Main.classes.NormalUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class StartManuControllers {
 
     @Autowired
-    private UserDAO userDAO;
+    private UserService userService;
 
     @GetMapping("/")
     public String getManu(Model model){
@@ -27,8 +28,9 @@ public class StartManuControllers {
     @PostMapping("/")
     public String getManu1(Model model, @ModelAttribute String city){
         //TODO: read from the database and return a list of houses
-        userDAO.addUser(new NormalUser(12l,"tffffst","aest","madddaar","kir"));
-//        System.out.println(userService.getUsers());
+//        userService.updateUserEmail(new NormalUser("adam","aest","fosffh bad"));
+        System.out.println(userService.getUsers());
+
         return "manu";
     }
 
