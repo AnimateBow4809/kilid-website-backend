@@ -15,30 +15,43 @@ public class RealStateAgency {
     @Column(name = "agency_id")
     private Long id;
 
-    @Column(name = "Aname")
+    @Column(name = "a_name")
     private String aName;
 
-    @Column(name = "Aphone")
+    @Column(name = "a_phone")
     private String aPhone;
 
-    @Column(name = "Acity")
+    @Column(name = "a_city")
     private String aCity;
 
     @Column(name = "emp_count")
     private Integer empCount;
 
-    @Column(name = "Mname")
+    @Column(name = "m_name")
     private String mName;
 
-    @Column(name = "mFamily")
+    @Column(name = "m_family")
     private String mFamily;
 
-    @Column(name = "Mphone")
+    @Column(name = "m_phone")
     private String mPhone;
 
-    @Column(name = "Password")
+    @Column(name = "password")
     private String password;
 
+    public RealStateAgency(String aName, String aCity, String mName, String mFamily, String mPhone, String password) {
+        this.aName = aName;
+        this.aCity = aCity;
+        this.mName = mName;
+        this.mFamily = mFamily;
+        this.mPhone = mPhone;
+        this.password = password;
+        aPhone="";
+        empCount=0;
+        System.out.println(this);
+    }
 
+    public RealStateAgency() {
 
+    }
 }
