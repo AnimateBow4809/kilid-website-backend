@@ -2,6 +2,8 @@ package Main.DAO.serviceImplementations;
 
 import Main.DAO.repos.PropertyRepo;
 import Main.DAO.serviceInterfaces.PropertyService;
+import Main.Utils.Filter;
+import Main.Utils.PropertyCombiner;
 import Main.classes.Property;
 import Main.classes.PropertyForMortgage;
 import Main.classes.PropertyForRent;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -62,5 +65,14 @@ public class PropertyServiceImpl implements PropertyService {
         } else {
             repo.updatePropertyForSale((PropertyForSale) property);
         }
+    }
+
+    @Override
+    public List<Property> findByFiler(Filter filter) {
+        List<Property>properties=repo.joinOnPropertyConditionAndFacilities(filter.getCondition(),filter.getFacility()
+                ,filter.getMinAge(),filter.getMaxAge(),
+                filter.getNumberOfRoom(),filter.getMinArea(),filter.getMaxArea(),filter.getUsage()
+                ,filter.getZone(),filter.getCity());
+        return properties;
     }
 }

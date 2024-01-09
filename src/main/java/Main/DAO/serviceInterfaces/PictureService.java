@@ -18,5 +18,6 @@ public interface PictureService {
     public String uploadImage(MultipartFile imageFile, PictureKey pictureKey) throws IOException;
 
     public byte[] downloadImage(Long id,Long pid);
+    public void removePictureByPictureKeyPropertyID(Long id);
 
 }

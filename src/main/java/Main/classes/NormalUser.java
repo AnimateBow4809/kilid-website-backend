@@ -14,7 +14,7 @@ public class NormalUser {
     private Long userId;
 
     @Column(name = "name")
-    private String name="";
+    private String name="happy user";
 
     @Column(name = "fname")
     private String fname="";

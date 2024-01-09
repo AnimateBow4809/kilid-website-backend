@@ -17,9 +17,5 @@ public interface PropertyConditionService {
 
     public PropertyCondition getAllPropertyConditionById(Long id);
 
-    public List<PropertyCondition> getMatchingPropertyCondition(PropertyCondition propertyCondition);
-
-    public List<Long> getMatchingPropertyConditionId(PropertyCondition propertyCondition);
-
 
 }

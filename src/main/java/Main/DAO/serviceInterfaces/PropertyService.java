@@ -1,5 +1,7 @@
 package Main.DAO.serviceInterfaces;
 
+import Main.Utils.Filter;
+import Main.Utils.PropertyCombiner;
 import Main.classes.Property;
 import Main.classes.PropertyForMortgage;
 import Main.classes.PropertyForRent;
@@ -22,5 +24,7 @@ public interface PropertyService {
     public void deleteProperty(Property property);
 
     public void updateProperty(Property property);
+
+    public List<Property> findByFiler(Filter filter);
 
 }

@@ -33,11 +33,11 @@
     <schema id="10" parent="1" name="DB_PROJ">
       <CreatedTimestamp>2024-01-06.21:00:16</CreatedTimestamp>
       <Current>1</Current>
-      <IntrospectionL1Timestamp>2024-01-09.21:03:56</IntrospectionL1Timestamp>
-      <IntrospectionL2Timestamp>2024-01-09.21:03:56</IntrospectionL2Timestamp>
-      <IntrospectionL3Timestamp>2024-01-09.21:03:56</IntrospectionL3Timestamp>
+      <IntrospectionL1Timestamp>2024-01-10.02:32:17</IntrospectionL1Timestamp>
+      <IntrospectionL2Timestamp>2024-01-10.02:32:17</IntrospectionL2Timestamp>
+      <IntrospectionL3Timestamp>2024-01-10.02:32:17</IntrospectionL3Timestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
-      <ModifiedTimestamp>2024-01-09.21:03:56</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-01-10.02:32:17</ModifiedTimestamp>
       <ObjectId>115</ObjectId>
     </schema>
     <schema id="11" parent="1" name="DGPDB_INT">
@@ -339,14 +339,14 @@
     <table id="93" parent="10" name="MY_USERS">
       <CreatedTimestamp>2024-01-06.21:00:16</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-01-07.04:37:52</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-01-09.22:22:39</ModifiedTimestamp>
       <ObjectId>77798</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="94" parent="10" name="PROPERTY">
       <CreatedTimestamp>2024-01-08.20:17:41</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-01-09.04:08:39</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-01-10.02:32:17</ModifiedTimestamp>
       <ObjectId>77853</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
@@ -60107,6 +60107,7 @@
     </column>
     <column id="7601" parent="93" name="NAME">
       <DataType>VARCHAR2(45 byte)|0s</DataType>
+      <DefaultExpression>&apos;karbar eziz&apos;</DefaultExpression>
       <Position>2</Position>
     </column>
     <column id="7602" parent="93" name="FNAME">
@@ -60198,12 +60199,12 @@
       <Position>6</Position>
     </column>
     <column id="7617" parent="94" name="NUMBER_OF_ROOM">
-      <DataType>VARCHAR2(255 char)|0us</DataType>
+      <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
     <column id="7618" parent="94" name="AGE">
-      <DataType>VARCHAR2(25 byte)|0s</DataType>
+      <DataType>NUMBER(*)|0s</DataType>
       <Position>8</Position>
     </column>
     <column id="7619" parent="94" name="REAL_ESTATE_ID">

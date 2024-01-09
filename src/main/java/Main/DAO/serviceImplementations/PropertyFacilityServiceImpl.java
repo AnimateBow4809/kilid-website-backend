@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-//TODO:add missing function bodies
 @Service
 @Transactional
 public class PropertyFacilityServiceImpl implements PropertyFacilityService {
@@ -35,7 +34,7 @@ public class PropertyFacilityServiceImpl implements PropertyFacilityService {
 
     @Override
     public void updatePropertyFacility(PropertyFacility propertyFacility) {
-
+        repo.updatePropertyFacilityFields(propertyFacility);
     }
 
     @Override
@@ -51,15 +50,5 @@ public class PropertyFacilityServiceImpl implements PropertyFacilityService {
         } else {
             throw new RuntimeException();
         }
-    }
-
-    @Override
-    public List<PropertyFacility> getMatchingPropertyFacility(PropertyFacility propertyFacility) {
-        return null;
-    }
-
-    @Override
-    public List<Long> getMatchingPropertyFacilityId(PropertyFacility propertyFacility) {
-        return null;
     }
 }

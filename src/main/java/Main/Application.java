@@ -14,26 +14,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("Main.classes")
 public class Application {
 
-//    @Bean("entityManagerFactory")
-//    public SessionFactory getSessionFactory(){
-//        return new Configuration().addAnnotatedClass(NormalUser.class).configure("hibernate.cfg.xml").buildSessionFactory();
-//
-//    }
-
-
-//
-//    @Bean(name="entityManagerFactory")
-//    public SessionFactory sessionFactory() {
-//         SessionFactory in Hibernate 5 example
-//        Configuration config = new Configuration();
-//        config.configure();
-//         local SessionFactory bean created
-//        SessionFactory sessionFactory = config.buildSessionFactory();
-//        return sessionFactory;
-//    }
-
-
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
 

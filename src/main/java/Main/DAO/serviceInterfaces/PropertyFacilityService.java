@@ -16,7 +16,4 @@ public interface PropertyFacilityService {
 
     public PropertyFacility getAllPropertyFacilityById(Long id);
 
-    public List<PropertyFacility> getMatchingPropertyFacility(PropertyFacility propertyFacility);
-
-    public List<Long> getMatchingPropertyFacilityId(PropertyFacility propertyFacility);
 }

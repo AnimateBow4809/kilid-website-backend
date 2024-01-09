@@ -32,10 +32,10 @@ public class Property {
     private String usage;
 
     @Column(name = "number_of_room")
-    private String numberOfRoom;
+    private Long numberOfRoom;
 
     @Column(name = "age")
-    private String age;
+    private Long age;
 
     @Column(name = "real_estate_id")
     private Long AgencyID;
@@ -47,7 +47,7 @@ public class Property {
     }
 
     public Property(Long id, String title, String city, String zone
-            , Integer area, String usage, String numberOfRoom, String age, Long agencyID, String description) {
+            , Integer area, String usage, Long numberOfRoom, Long age, Long agencyID, String description) {
         this.id = id;
         this.title = title;
         this.city = city;

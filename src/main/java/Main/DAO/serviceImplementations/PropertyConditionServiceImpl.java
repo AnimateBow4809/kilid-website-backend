@@ -35,7 +35,7 @@ public class PropertyConditionServiceImpl implements PropertyConditionService {
 
     @Override
     public void updatePropertyCondition(PropertyCondition propertyCondition) {
-
+        repo.updatePropertyConditionFields(propertyCondition);
     }
 
     @Override
@@ -53,13 +53,4 @@ public class PropertyConditionServiceImpl implements PropertyConditionService {
         }
     }
 
-    @Override
-    public List<PropertyCondition> getMatchingPropertyCondition(PropertyCondition propertyCondition) {
-        return null;
-    }
-
-    @Override
-    public List<Long> getMatchingPropertyConditionId(PropertyCondition propertyCondition) {
-        return null;
-    }
 }

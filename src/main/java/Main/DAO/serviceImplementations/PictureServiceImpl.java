@@ -70,4 +70,11 @@ public class PictureServiceImpl implements PictureService {
             }
         }).orElse(null);
     }
+
+    @Override
+    public void removePictureByPictureKeyPropertyID(Long id) {
+        repo.removePictureByPictureKeyPropertyID(id);
+    }
+
+
 }

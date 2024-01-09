@@ -1,6 +1,7 @@
 package Main.DAO.serviceInterfaces;
 
 import Main.classes.RealStateAgency;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -17,5 +18,7 @@ public interface AgencyService {
     public void deleteAgency(RealStateAgency agency);
 
     public void updateAgency(RealStateAgency agency);
+
+    RealStateAgency findRealStateAgencyByMPhone(String MPhone);
 
 }

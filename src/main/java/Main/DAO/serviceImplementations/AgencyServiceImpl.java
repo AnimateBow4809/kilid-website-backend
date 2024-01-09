@@ -55,4 +55,9 @@ public class AgencyServiceImpl implements AgencyService {
     public void updateAgency(RealStateAgency agency) {
         repo.updatePhoneNumberAndNumberOfWorkers(agency.getAPhone(),agency.getEmpCount(), agency.getId());
     }
+
+    @Override
+    public RealStateAgency findRealStateAgencyByMPhone(String MPhone) {
+        return repo.findRealStateAgencyByMPhone(MPhone);
+    }
 }
