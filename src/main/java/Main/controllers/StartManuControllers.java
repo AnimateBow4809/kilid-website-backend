@@ -1,17 +1,18 @@
 package Main.controllers;
 
 
-import Main.DAO.AgencyService;
-import Main.DAO.UserService;
+import Main.DAO.serviceInterfaces.AgencyService;
+import Main.DAO.serviceInterfaces.PictureService;
+import Main.DAO.serviceInterfaces.UserService;
 import Main.classes.NormalUser;
 import Main.classes.RealStateAgency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -23,21 +24,33 @@ public class StartManuControllers {
     @Autowired
     private AgencyService agencyService;
 
-    @GetMapping("/")
+    @Autowired
+    private PictureService pictureService;
+
+    @GetMapping("/api")
     public String getManu(Model model){
         String city="";
         model.addAttribute("city_name",city);
         return "manu";
     }
 
-    @PostMapping("/")
+    @RequestMapping("/")
     public String getManu1(Model model, @ModelAttribute String city){
         //TODO: read from the database and return a list of houses
 //        userService.updateUserEmail(new NormalUser("adam","aest","fosffh bad"));
 //        System.out.println(userService.getUsers());
-        RealStateAgency agency=new RealStateAgency("updated","a","a","a","a","a");
-        agency.setId(302L);
-        agencyService.updateAgency(agency);
+//        RealStateAgency agency=new RealStateAgency("updated","a","a","a","a","a");
+//        agency.setId(302L);
+//        agencyService.updateAgency(agency);
+        return "manu";
+    }
+
+    @PostMapping("/upload")
+    public String getImage(Model model, @ModelAttribute String city) throws IOException {
+//        Picture picture=new Picture();
+//        picture.buildImage(file);
+//        picture.setPictureKey(new PictureKey(1L));
+//        pictureService.addPicture(picture);
         return "manu";
     }
 

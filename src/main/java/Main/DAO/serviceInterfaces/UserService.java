@@ -1,4 +1,4 @@
-package Main.DAO;
+package Main.DAO.serviceInterfaces;
 
 import Main.classes.NormalUser;
 

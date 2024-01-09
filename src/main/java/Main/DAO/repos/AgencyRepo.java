@@ -1,4 +1,4 @@
-package Main.DAO;
+package Main.DAO.repos;
 
 import Main.classes.RealStateAgency;
 import org.springframework.data.jpa.repository.JpaRepository;

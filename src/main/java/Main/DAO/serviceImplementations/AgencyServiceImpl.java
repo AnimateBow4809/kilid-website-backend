@@ -1,5 +1,7 @@
-package Main.DAO;
+package Main.DAO.serviceImplementations;
 
+import Main.DAO.repos.AgencyRepo;
+import Main.DAO.serviceInterfaces.AgencyService;
 import Main.classes.RealStateAgency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class AgencyServiceImpl implements AgencyService{
+public class AgencyServiceImpl implements AgencyService {
 
     private AgencyRepo repo;
 

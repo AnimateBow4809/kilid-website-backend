@@ -1,5 +1,7 @@
-package Main.DAO;
+package Main.DAO.serviceImplementations;
 
+import Main.DAO.repos.UserRepo;
+import Main.DAO.serviceInterfaces.UserService;
 import Main.classes.NormalUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

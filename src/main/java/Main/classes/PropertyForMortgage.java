@@ -12,5 +12,5 @@ import lombok.Data;
 public class PropertyForMortgage extends Property{
 
     @Column(name = "mortgage_cost")
-    private Integer mortgage_cost;
+    private Integer mortgageCost;
 }
