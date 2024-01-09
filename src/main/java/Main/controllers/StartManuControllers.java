@@ -29,28 +29,16 @@ public class StartManuControllers {
 
     @GetMapping("/api")
     public String getManu(Model model){
-        String city="";
-        model.addAttribute("city_name",city);
         return "manu";
     }
 
     @RequestMapping("/")
     public String getManu1(Model model, @ModelAttribute String city){
-        //TODO: read from the database and return a list of houses
-//        userService.updateUserEmail(new NormalUser("adam","aest","fosffh bad"));
-//        System.out.println(userService.getUsers());
-//        RealStateAgency agency=new RealStateAgency("updated","a","a","a","a","a");
-//        agency.setId(302L);
-//        agencyService.updateAgency(agency);
         return "manu";
     }
 
     @PostMapping("/upload")
     public String getImage(Model model, @ModelAttribute String city) throws IOException {
-//        Picture picture=new Picture();
-//        picture.buildImage(file);
-//        picture.setPictureKey(new PictureKey(1L));
-//        pictureService.addPicture(picture);
         return "manu";
     }
 

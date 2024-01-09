@@ -52,6 +52,15 @@ public class PropertyController {
         return propertyCombiners;
     }
 
+    @GetMapping("/show/{id}")
+    public PropertyCombiner showProperty(@PathVariable String id){
+        PropertyCombiner propertyCombiner=new PropertyCombiner
+                (propertyService.getPropertyByID(Long.valueOf(id)), propertyFacilityService.getAllPropertyFacilityById(Long.valueOf(id))
+                        ,propertyConditionService.getAllPropertyConditionById(Long.valueOf(id)),
+                        pictureService.getPicturesById(Long.valueOf(id)));
+        return propertyCombiner;
+    }
+
     @PutMapping("/update")
     public PropertyCombiner updateProperty(@RequestBody PropertyCombiner propertyCombiner){
         propertyService.updateProperty(propertyCombiner.getProperty());

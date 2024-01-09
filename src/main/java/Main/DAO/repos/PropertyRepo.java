@@ -79,12 +79,13 @@ public interface PropertyRepo extends JpaRepository<Property,Long> {
             "AND ( pc.barter = '0' OR pc.barter = :#{#pcInput.barter} ) " +
             "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and p.age<=:maxAge " +
             "and p.numberOfRoom>=:numberOfRooms and p.area>=:minArea and p.area<=:maxArea and p.usage=:usage " +
-            "and p.zone like %:zone% and p.city like %:city% ")
+            "and p.zone like %:zone% and p.city like %:city% and type(p)=:pType ")
     List<Property> joinOnPropertyConditionAndFacilities(PropertyCondition pcInput,
                                               PropertyFacility pfInput,Long minAge,Long maxAge
-                                            ,Long numberOfRooms,Integer minArea,Integer maxArea,String usage,String zone,String city);
+                                            ,Long numberOfRooms,Integer minArea,Integer maxArea,
+                                                        String usage,String zone,String city,Long pType);
 
-
+//we will divide every type for now
 
 
 }

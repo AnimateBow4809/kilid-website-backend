@@ -24,4 +24,6 @@ public class PropertyCombiner {
       this.condition = condition;
       this.picture = picture;
    }
+
+
 }

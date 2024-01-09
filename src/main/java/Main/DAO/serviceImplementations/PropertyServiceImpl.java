@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -47,6 +48,14 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
+    public Property getPropertyByID(Long id) {
+        Optional<Property>property=repo.findById(id);
+        if (property.isPresent())
+        return property.get();
+        else throw new RuntimeException();
+    }
+
+    @Override
     public void addProperty(Property property) {
         repo.save(property);
     }
@@ -72,7 +81,7 @@ public class PropertyServiceImpl implements PropertyService {
         List<Property>properties=repo.joinOnPropertyConditionAndFacilities(filter.getCondition(),filter.getFacility()
                 ,filter.getMinAge(),filter.getMaxAge(),
                 filter.getNumberOfRoom(),filter.getMinArea(),filter.getMaxArea(),filter.getUsage()
-                ,filter.getZone(),filter.getCity());
+                ,filter.getZone(),filter.getCity(),filter.getPropertyType());
         return properties;
     }
 }

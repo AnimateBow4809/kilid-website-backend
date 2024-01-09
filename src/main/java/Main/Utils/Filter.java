@@ -17,5 +17,6 @@ public class Filter {
     private Long numberOfRoom;
     private Long minAge;
     private Long maxAge;
+    private Long propertyType; //mortgage : ejare :2 // rent : rahn : 3// sale :1
 
 }

@@ -19,6 +19,8 @@ public interface PropertyService {
 
     public List<PropertyForRent> getPropertyForRent();
 
+    public Property getPropertyByID(Long id);
+
     public void addProperty(Property property);
 
     public void deleteProperty(Property property);
