@@ -1,5 +1,7 @@
 package Main.classes;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,12 +11,15 @@ import lombok.Data;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="property_type",
         discriminatorType = DiscriminatorType.INTEGER)
+@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
+@JsonSubTypes({ @JsonSubTypes.Type(PropertyForRent.class), @JsonSubTypes.Type(PropertyForSale.class),
+        @JsonSubTypes.Type(PropertyForMortgage.class) })
 public class Property {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name ="property_id" )
-    private Long id;
+    private Long propertyId;
 
     @Column(name = "title")
     private String title;
@@ -38,7 +43,7 @@ public class Property {
     private Long age;
 
     @Column(name = "real_estate_id")
-    private Long AgencyID;
+    private Long agencyID;
 
     @Column(name = "description")
     private String description;
@@ -46,9 +51,9 @@ public class Property {
     public Property() {
     }
 
-    public Property(Long id, String title, String city, String zone
+    public Property(Long propertyId, String title, String city, String zone
             , Integer area, String usage, Long numberOfRoom, Long age, Long agencyID, String description) {
-        this.id = id;
+        this.propertyId = propertyId;
         this.title = title;
         this.city = city;
         this.zone = zone;
@@ -56,7 +61,7 @@ public class Property {
         this.usage = usage;
         this.numberOfRoom = numberOfRoom;
         this.age = age;
-        AgencyID = agencyID;
+        this.agencyID = agencyID;
         this.description = description;
     }
 }

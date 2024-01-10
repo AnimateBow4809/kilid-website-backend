@@ -57,6 +57,9 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public void addProperty(Property property) {
+        if (repo.findById(property.getPropertyId()).isPresent()){
+            property.setPropertyId(null);
+        }
         repo.save(property);
     }
 

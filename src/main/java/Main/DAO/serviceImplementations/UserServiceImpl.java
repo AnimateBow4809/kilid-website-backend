@@ -52,6 +52,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(NormalUser normalUser) {
+        if (userRepo.findById(normalUser.getUserId()).isPresent()){
+            normalUser.setUserId(null);
+        }
         userRepo.save(normalUser);
     }
 

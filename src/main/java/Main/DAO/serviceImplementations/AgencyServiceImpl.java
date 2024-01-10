@@ -43,6 +43,9 @@ public class AgencyServiceImpl implements AgencyService {
 
     @Override
     public void addAgency(RealStateAgency agency) {
+        if (repo.findById(agency.getId()).isPresent()){
+            agency.setId(null);
+        }
         repo.save(agency);
     }
 

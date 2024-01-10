@@ -8,8 +8,6 @@ import Main.Utils.Filter;
 import Main.Utils.PropertyCombiner;
 import Main.classes.Picture;
 import Main.classes.Property;
-import Main.classes.PropertyCondition;
-import Main.classes.PropertyFacility;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -45,9 +43,9 @@ public class PropertyController {
         List<Property> properties = propertyService.findByFiler(filter);
         for (Property property:properties) {
             propertyCombiners.add(new PropertyCombiner
-                    (property, propertyFacilityService.getAllPropertyFacilityById(property.getId())
-                            ,propertyConditionService.getAllPropertyConditionById(property.getId()),
-                            pictureService.getPicturesById(property.getId())));
+                    (property, propertyFacilityService.getAllPropertyFacilityById(property.getPropertyId())
+                            ,propertyConditionService.getAllPropertyConditionById(property.getPropertyId()),
+                            pictureService.getPicturesById(property.getPropertyId())));
         }
         return propertyCombiners;
     }
@@ -75,18 +73,25 @@ public class PropertyController {
         propertyFacilityService.deletePropertyFacility(propertyCombiner.getFacility());
         propertyConditionService.deletePropertyCondition(propertyCombiner.getCondition());
         propertyService.deleteProperty(propertyCombiner.getProperty());
-        pictureService.removePictureByPictureKeyPropertyID(propertyCombiner.getProperty().getId());
+        pictureService.removePictureByPictureKeyPropertyID(propertyCombiner.getProperty().getPropertyId());
         return "deleted";
     }
 
     @PostMapping("/add")
     public PropertyCombiner addProperty(@RequestBody PropertyCombiner propertyCombiner){
+        System.out.println(propertyCombiner);
         propertyService.addProperty(propertyCombiner.getProperty());
+        //setting the generated property key
+        propertyCombiner.getFacility().setPropertyId(propertyCombiner.getProperty().getPropertyId());
+        propertyCombiner.getCondition().setPropertyId(propertyCombiner.getProperty().getPropertyId());
+
         propertyFacilityService.addPropertyFacility(propertyCombiner.getFacility());
         propertyConditionService.addPropertyCondition(propertyCombiner.getCondition());
-        for (Picture p: propertyCombiner.getPicture()) {
-            pictureService.addPicture(p);
-        }
+        try {
+            for (Picture p : propertyCombiner.getPicture()) {
+                pictureService.addPicture(p);
+            }
+        }catch (Exception ignored){}
         return propertyCombiner;
     }
 }
