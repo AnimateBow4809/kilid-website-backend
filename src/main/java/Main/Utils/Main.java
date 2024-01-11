@@ -12,7 +12,8 @@ public class Main {
         Filter filter=new Filter();
         String json = ow.writeValueAsString
                 (new Filter(new PropertyFacility(),new PropertyCondition(),"city 1","zone 1",54,150,
-                        "resedential",4L,1L,10L,1L));
+                        "resedential",4L,1L,10L,1L,1000
+                        ,1000000,3000,3000000,null,null));
         System.out.println(json);
     }
 }

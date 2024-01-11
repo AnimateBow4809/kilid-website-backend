@@ -47,15 +47,15 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public Property getPropertyByID(Long id) {
-        Optional<Property>property=repo.findById(id);
+        Optional<Property> property = repo.findById(id);
         if (property.isPresent())
-        return property.get();
+            return property.get();
         else throw new RuntimeException();
     }
 
     @Override
     public void addProperty(Property property) {
-        if (repo.findById(property.getPropertyId()).isPresent()){
+        if (repo.findById(property.getPropertyId()).isPresent()) {
             property.setPropertyId(null);
         }
         repo.save(property);
@@ -80,14 +80,30 @@ public class PropertyServiceImpl implements PropertyService {
     @Override
     public List<Property> findByFiler(Filter filter) {
         System.out.println(filter);
-        List<Property>properties=repo.joinOnPropertyConditionAndFacilities(filter.getCondition(),filter.getFacility()
-                ,filter.getMinAge(),filter.getMaxAge(),
-                filter.getNumberOfRoom(),filter.getMinArea(),filter.getMaxArea(),filter.getUsage()
-                ,filter.getZone(),filter.getCity(),classType(filter.getPropertyType()));
+        List<Property> properties = null;
+        if (filter.getPropertyType() == 1) {
+            properties = repo.joinOnPropertyConditionForSaleAndFacilities(filter.getCondition(), filter.getFacility()
+                    , filter.getMinAge(), filter.getMaxAge(),
+                    filter.getNumberOfRoom(), filter.getMinArea(), filter.getMaxArea(), filter.getUsage()
+                    , filter.getZone(), filter.getCity(), classType(filter.getPropertyType()),
+                    filter.getMinSellCost(), filter.getMaxSellCost());
+        } else if (filter.getPropertyType() == 2 || filter.getPropertyType() == 3) {
+            properties = repo.joinOnPropertyConditionForRentAndFacilities(filter.getCondition(), filter.getFacility()
+                    , filter.getMinAge(), filter.getMaxAge(),
+                    filter.getNumberOfRoom(), filter.getMinArea(), filter.getMaxArea(), filter.getUsage()
+                    , filter.getZone(), filter.getCity(), filter.getMinPreCostMortgage()
+                    , filter.getMaxPreCostMortgage()
+                    , filter.getMinMonthlyRent(), filter.getMaxMonthlyRent());
+            properties.addAll(repo.joinOnPropertyForMortgageConditionAndFacilities(filter.getCondition(), filter.getFacility()
+                    , filter.getMinAge(), filter.getMaxAge(),
+                    filter.getNumberOfRoom(), filter.getMinArea(), filter.getMaxArea(), filter.getUsage()
+                    , filter.getZone(), filter.getCity()
+                    , filter.getMinPreCostMortgage(), filter.getMaxPreCostMortgage()));
+        }
         return properties;
     }
 
-    public Class classType(Long type){
+    public Class classType(Long type) {
         if (type == 1) {
             return PropertyForSale.class;
         } else if (type == 2) {
@@ -100,7 +116,7 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<Property> getAll() {
-        List<Property>properties=repo.showAllProperties();
+        List<Property> properties = repo.showAllProperties();
         return properties;
     }
 }
