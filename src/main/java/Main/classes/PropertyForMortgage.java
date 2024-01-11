@@ -13,4 +13,7 @@ public class PropertyForMortgage extends Property{
 
     @Column(name = "mortgage_cost")
     private Integer mortgageCost;
+
+    public PropertyForMortgage() {
+    }
 }

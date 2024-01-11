@@ -14,4 +14,7 @@ public class PropertyForRent extends Property{
 
     @Column(name = "monthly_rent")
     private Integer monthlyRent;
+
+    public PropertyForRent() {
+    }
 }

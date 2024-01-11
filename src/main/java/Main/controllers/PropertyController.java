@@ -39,8 +39,24 @@ public class PropertyController {
     }
 
     @GetMapping("/show")
-    public List<PropertyCombiner> getLists(Filter filter) {
+    public List<PropertyCombiner> getLists(@RequestBody Filter filter) {
+        propertyCombiners.clear();
         List<Property> properties = propertyService.findByFiler(filter);
+        System.out.println(filter);
+        for (Property property:properties) {
+            propertyCombiners.add(new PropertyCombiner
+                    (property, propertyFacilityService.getAllPropertyFacilityById(property.getPropertyId())
+                            ,propertyConditionService.getAllPropertyConditionById(property.getPropertyId()),
+                            pictureService.getPicturesById(property.getPropertyId())));
+        }
+        return propertyCombiners;
+    }
+
+    @GetMapping("/show/all")
+    public List<PropertyCombiner> getAllLists() {
+        propertyCombiners.clear();
+        List<Property> properties = propertyService.getAll();
+//        System.out.println(properties);
         for (Property property:properties) {
             propertyCombiners.add(new PropertyCombiner
                     (property, propertyFacilityService.getAllPropertyFacilityById(property.getPropertyId())

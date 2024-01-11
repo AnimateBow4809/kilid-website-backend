@@ -13,4 +13,7 @@ public class PropertyForSale extends Property {
 
     @Column(name = "sell_cost")
     private Integer sellCost;
+
+    public PropertyForSale() {
+    }
 }

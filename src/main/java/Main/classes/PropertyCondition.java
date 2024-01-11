@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Property_condition")
 @Data
-@NoArgsConstructor
 public class PropertyCondition {
     @Id
     @Column(name = "property_id")
@@ -43,6 +42,9 @@ public class PropertyCondition {
     @Column(name = "mall")
     private String mall;
 
+    public PropertyCondition() {
+    }
+
     public PropertyCondition(String cooperative, String barter, String convertible, String presale,
                              String buildingLocation, String loan, String newlyBuilt, String equity,
                              String shoppingCenter, String mall) {
@@ -57,6 +59,7 @@ public class PropertyCondition {
         this.shoppingCenter = shoppingCenter;
         this.mall = mall;
     }
+
     public boolean convertStrintToBool(String variable) {
         return "1".equals(variable);
     }

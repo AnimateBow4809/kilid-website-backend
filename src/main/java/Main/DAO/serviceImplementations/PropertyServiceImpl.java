@@ -3,7 +3,6 @@ package Main.DAO.serviceImplementations;
 import Main.DAO.repos.PropertyRepo;
 import Main.DAO.serviceInterfaces.PropertyService;
 import Main.Utils.Filter;
-import Main.Utils.PropertyCombiner;
 import Main.classes.Property;
 import Main.classes.PropertyForMortgage;
 import Main.classes.PropertyForRent;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,10 +79,28 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<Property> findByFiler(Filter filter) {
+        System.out.println(filter);
         List<Property>properties=repo.joinOnPropertyConditionAndFacilities(filter.getCondition(),filter.getFacility()
                 ,filter.getMinAge(),filter.getMaxAge(),
                 filter.getNumberOfRoom(),filter.getMinArea(),filter.getMaxArea(),filter.getUsage()
-                ,filter.getZone(),filter.getCity(),filter.getPropertyType());
+                ,filter.getZone(),filter.getCity(),classType(filter.getPropertyType()));
+        return properties;
+    }
+
+    public Class classType(Long type){
+        if (type == 1) {
+            return PropertyForSale.class;
+        } else if (type == 2) {
+            return PropertyForMortgage.class;
+        } else if (type == 3) {
+            return PropertyForRent.class;
+        }
+        return Object.class;
+    }
+
+    @Override
+    public List<Property> getAll() {
+        List<Property>properties=repo.showAllProperties();
         return properties;
     }
 }

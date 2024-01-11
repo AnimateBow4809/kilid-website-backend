@@ -4,8 +4,10 @@ import Main.classes.PropertyCondition;
 import Main.classes.PropertyFacility;
 import jakarta.persistence.Column;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Filter {
     private PropertyFacility facility;
     private PropertyCondition condition;
@@ -17,7 +19,10 @@ public class Filter {
     private Long numberOfRoom;
     private Long minAge;
     private Long maxAge;
-    private Long propertyType; //mortgage : ejare :2 // rent : rahn : 3// sale :1
+    private Long propertyType;
+    //mortgage : ejare :2
+    // rent : rahn : 3
+    // sale :1
 
 
 

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "property_facility")
 @Data
-@NoArgsConstructor
 public class PropertyFacility {
     @Id
     @Column(name = "property_id")
@@ -54,6 +53,9 @@ public class PropertyFacility {
 
     @Column(name = "remote_controlled_door")
     private String remoteControlledDoor;
+
+    public PropertyFacility() {
+    }
 
     public PropertyFacility(String parking, String lobby, String elevator, String pool, String sauna, String gym,
                             String buildingGuard, String balcony, String rooftopGarden, String airCondition,
