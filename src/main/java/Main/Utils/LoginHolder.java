@@ -7,3 +7,4 @@ public class LoginHolder {
     private String phone = "";
     private String password = "";
 }
+// not used anymore
