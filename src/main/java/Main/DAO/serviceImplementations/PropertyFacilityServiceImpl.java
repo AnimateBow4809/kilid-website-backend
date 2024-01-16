@@ -4,7 +4,6 @@ import Main.DAO.repos.PropertyFacilityRepo;
 import Main.DAO.serviceInterfaces.PropertyFacilityService;
 import Main.classes.PropertyFacility;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +29,11 @@ public class PropertyFacilityServiceImpl implements PropertyFacilityService {
     @Override
     public void deletePropertyFacility(PropertyFacility propertyFacility) {
         repo.delete(propertyFacility);
+    }
+
+    @Override
+    public void deletePropertyFacility(Long id) {
+        repo.deleteById(id);
     }
 
     @Override

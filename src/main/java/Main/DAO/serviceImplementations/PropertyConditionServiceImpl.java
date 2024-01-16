@@ -4,7 +4,6 @@ import Main.DAO.repos.PropertyConditionRepo;
 import Main.DAO.serviceInterfaces.PropertyConditionService;
 import Main.classes.PropertyCondition;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +36,12 @@ public class PropertyConditionServiceImpl implements PropertyConditionService {
     public void updatePropertyCondition(PropertyCondition propertyCondition) {
         repo.updatePropertyConditionFields(propertyCondition);
     }
+
+    @Override
+    public void deletePropertyCondition(Long id) {
+        repo.deleteById(id);
+    }
+
 
     @Override
     public List<PropertyCondition> getAllPropertyCondition() {

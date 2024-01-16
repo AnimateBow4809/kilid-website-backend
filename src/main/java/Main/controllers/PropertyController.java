@@ -38,7 +38,7 @@ public class PropertyController {
         this.propertyCombiners = new ArrayList<>();
     }
 
-    @GetMapping("/show")
+    @PostMapping("/show")
     public List<PropertyCombiner> getLists(@RequestBody Filter filter) {
         propertyCombiners.clear();
         List<Property> properties = propertyService.findByFiler(filter);
@@ -49,6 +49,7 @@ public class PropertyController {
                             ,propertyConditionService.getAllPropertyConditionById(property.getPropertyId()),
                             pictureService.getPicturesById(property.getPropertyId())));
         }
+        System.out.println(propertyCombiners);
         return propertyCombiners;
     }
 
@@ -84,12 +85,13 @@ public class PropertyController {
         return propertyCombiner;
     }
 
-    @DeleteMapping("/delete")
-    public String deleteProperty(@RequestBody PropertyCombiner propertyCombiner){
-        propertyFacilityService.deletePropertyFacility(propertyCombiner.getFacility());
-        propertyConditionService.deletePropertyCondition(propertyCombiner.getCondition());
-        propertyService.deleteProperty(propertyCombiner.getProperty());
-        pictureService.removePictureByPictureKeyPropertyID(propertyCombiner.getProperty().getPropertyId());
+    @DeleteMapping("/delete/{id}")
+    public String deleteProperty(@PathVariable Long id){
+        propertyFacilityService.deletePropertyFacility(id);
+        propertyConditionService.deletePropertyCondition(id);
+        pictureService.removePictureByPictureKeyPropertyID(id);
+        propertyService.deleteProperty(id);
+
         return "deleted";
     }
 

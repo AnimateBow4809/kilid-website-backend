@@ -5,14 +5,12 @@ import Main.DAO.serviceInterfaces.AgencyService;
 import Main.DAO.serviceInterfaces.PictureService;
 import Main.DAO.serviceInterfaces.UserService;
 import Main.classes.NormalUser;
-import Main.classes.RealStateAgency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -34,7 +32,7 @@ public class StartManuControllers {
 
     @RequestMapping("/")
     public String getManu1(Model model, @ModelAttribute String city){
-        return "manu";
+        return "filter";
     }
 
     @PostMapping("/upload")

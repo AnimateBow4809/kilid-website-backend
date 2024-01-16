@@ -25,6 +25,8 @@ public interface PropertyService {
 
     public void deleteProperty(Property property);
 
+    void deleteProperty(Long id);
+
     public void updateProperty(Property property);
 
     public List<Property> findByFiler(Filter filter);

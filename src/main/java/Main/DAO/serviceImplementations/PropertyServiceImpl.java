@@ -67,6 +67,11 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
+    public void deleteProperty(Long id) {
+        repo.deleteById(id);
+    }
+
+    @Override
     public void updateProperty(Property property) {
         if (property.getClass().equals(PropertyForMortgage.class)) {
             repo.updatePropertyForMortgage((PropertyForMortgage) property);

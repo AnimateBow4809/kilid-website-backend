@@ -18,4 +18,6 @@ public interface UserService {
     public void addUser(NormalUser normalUser);
 
     public void deleteUser(NormalUser normalUser);
+
+    void deleteUser(Long id);
 }

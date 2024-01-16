@@ -14,13 +14,12 @@ public class AgencyController {
     @Autowired
     private AgencyService service;
 
-    @GetMapping("/show")
-    public RealStateAgency getAgency(@RequestBody LoginHolder holder){
-        System.out.println(holder);
-        RealStateAgency agency=service.findRealStateAgencyByMPhone(holder.getPhone());
+    @GetMapping("/show/{phone}/{password}")
+    public RealStateAgency getAgency(@PathVariable String phone,@PathVariable String password){
+        RealStateAgency agency=service.findRealStateAgencyByMPhone(phone);
         if (agency==null){
             return null;
-        }else if (agency.getPassword().equals(holder.getPassword())){
+        }else if (agency.getPassword().equals(password)){
             return agency;
         }
         return null;
@@ -34,10 +33,9 @@ public class AgencyController {
         return agency;
     }
 
-    @DeleteMapping("/delete")
-    public String deleteAgency(@RequestBody RealStateAgency agency){
-        RealStateAgency agency1=service.findRealStateAgencyByMPhone(agency.getMPhone());
-        agency.setId(agency1.getId());
+    @DeleteMapping("/delete/{mPhone}")
+    public String deleteAgency(@PathVariable String mPhone){
+        RealStateAgency agency=service.findRealStateAgencyByMPhone(mPhone);
         service.deleteAgency(agency);
         return "success";
     }

@@ -13,6 +13,8 @@ public interface PropertyConditionService {
 
     public void updatePropertyCondition(PropertyCondition propertyCondition);
 
+    void deletePropertyCondition(Long id);
+
     public List<PropertyCondition> getAllPropertyCondition();
 
     public PropertyCondition getAllPropertyConditionById(Long id);

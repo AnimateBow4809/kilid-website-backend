@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(NormalUser normalUser) {
-        if (userRepo.findById(normalUser.getUserId()).isPresent()){
+        if (normalUser.getUserId()!=null&&userRepo.findById(normalUser.getUserId()).isPresent()){
             normalUser.setUserId(null);
         }
         userRepo.save(normalUser);
@@ -62,4 +62,10 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(NormalUser normalUser) {
         userRepo.delete(normalUser);
     }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepo.deleteById(id);
+    }
+
 }

@@ -10,6 +10,8 @@ public interface PropertyFacilityService {
 
     public void deletePropertyFacility(PropertyFacility propertyFacility);
 
+    void deletePropertyFacility(Long id);
+
     public void updatePropertyFacility(PropertyFacility propertyFacility);
 
     public List<PropertyFacility> getAllPropertyFacility();
