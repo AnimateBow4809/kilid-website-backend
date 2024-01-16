@@ -12,6 +12,7 @@
   const data = JSON.parse(decodeURIComponent(urlParams.get('data')));
   const all = document.getElementById('all');
   all.innerText=JSON.stringify(data)
+
   for (const key in data){
           console.log(`${key} : ${data[key]}`)
   }
