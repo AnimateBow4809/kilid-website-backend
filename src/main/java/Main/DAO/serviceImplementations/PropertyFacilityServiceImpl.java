@@ -49,10 +49,6 @@ public class PropertyFacilityServiceImpl implements PropertyFacilityService {
     @Override
     public PropertyFacility getAllPropertyFacilityById(Long id) {
         Optional<PropertyFacility> propertyFacility = repo.findById(id);
-        if (propertyFacility.isPresent()) {
-            return propertyFacility.get();
-        } else {
-            throw new RuntimeException();
-        }
+        return propertyFacility.orElse(null);
     }
 }

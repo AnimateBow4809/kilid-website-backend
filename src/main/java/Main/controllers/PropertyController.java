@@ -53,7 +53,7 @@ public class PropertyController {
         return propertyCombiners;
     }
 
-    @GetMapping("/show/agency={id}")
+    @GetMapping("/show/agency/{id}")
     public List<PropertyCombiner> propertyByAgency(@PathVariable Long id){
         propertyCombiners.clear();
         List<Property>properties=propertyService.getPropertyByAgencyId(id);

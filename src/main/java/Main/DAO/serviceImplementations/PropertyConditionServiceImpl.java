@@ -51,11 +51,7 @@ public class PropertyConditionServiceImpl implements PropertyConditionService {
     @Override
     public PropertyCondition getAllPropertyConditionById(Long id) {
         Optional<PropertyCondition> propertyCondition = repo.findById(id);
-        if (propertyCondition.isPresent()) {
-            return propertyCondition.get();
-        } else {
-            throw new RuntimeException();
-        }
+        return propertyCondition.orElse(null);
     }
 
 }
