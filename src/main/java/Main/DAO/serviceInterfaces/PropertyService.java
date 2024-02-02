@@ -13,6 +13,8 @@ public interface PropertyService {
 
     public List<Property> getAllProperty();
 
+    List<Property> getPropertyByAgencyId(Long AgencyId);
+
     public List<PropertyForSale> getPropertyForSale();
 
     public List<PropertyForMortgage> getPropertyForMortgage();

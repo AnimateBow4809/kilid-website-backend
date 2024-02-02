@@ -31,6 +31,10 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
+    public List<Property> getPropertyByAgencyId(Long AgencyId){
+     return repo.findByAgencyID(AgencyId);
+    }
+    @Override
     public List<PropertyForSale> getPropertyForSale() {
         return repo.getPropertyForSale();
     }

@@ -25,6 +25,12 @@ public class AgencyController {
         return null;
     }
 
+    @GetMapping("/show/{id}")
+    public RealStateAgency getAgencyWithId(@PathVariable String id){
+        return service.findById(Long.valueOf(id));
+    }
+
+
     @PutMapping("/update")
     public RealStateAgency updateAgency(@RequestBody RealStateAgency agency){
         RealStateAgency agency1=service.findRealStateAgencyByMPhone(agency.getMPhone());

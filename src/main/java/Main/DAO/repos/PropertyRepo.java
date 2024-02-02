@@ -206,4 +206,6 @@ public interface PropertyRepo extends JpaRepository<Property, Long> {
                                                                    String usage, String zone, String city,
                                                                    Integer minPreCostMortgage,
                                                                    Integer maxPreCostMortgage);
+
+    List<Property>findByAgencyID(Long agencyID);
 }
