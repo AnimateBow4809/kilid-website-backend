@@ -53,6 +53,22 @@ public class PropertyController {
         return propertyCombiners;
     }
 
+    @GetMapping("/show/agency={id}")
+    public List<PropertyCombiner> propertyByAgency(@PathVariable Long id){
+        propertyCombiners.clear();
+        List<Property>properties=propertyService.getPropertyByAgencyId(id);
+        for (Property property:properties) {
+            propertyCombiners.add(new PropertyCombiner
+                    (property, propertyFacilityService.getAllPropertyFacilityById(property.getPropertyId())
+                            ,propertyConditionService.getAllPropertyConditionById(property.getPropertyId()),
+                            pictureService.getPicturesById(property.getPropertyId())));
+        }
+        return propertyCombiners;
+    }
+
+
+
+
     @GetMapping("/show/all")
     public List<PropertyCombiner> getAllLists() {
         propertyCombiners.clear();

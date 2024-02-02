@@ -26,8 +26,8 @@ public class AgencyController {
     }
 
     @GetMapping("/show/{id}")
-    public RealStateAgency getAgencyWithId(@PathVariable String id){
-        return service.findById(Long.valueOf(id));
+    public RealStateAgency getAgencyWithId(@PathVariable Long id){
+        return service.findById(id);
     }
 
 
