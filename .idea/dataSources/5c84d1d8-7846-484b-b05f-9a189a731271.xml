@@ -33,11 +33,11 @@
     <schema id="10" parent="1" name="DB_PROJ">
       <CreatedTimestamp>2024-01-06.21:00:16</CreatedTimestamp>
       <Current>1</Current>
-      <IntrospectionL1Timestamp>2024-01-10.07:49:07</IntrospectionL1Timestamp>
-      <IntrospectionL2Timestamp>2024-01-10.07:49:07</IntrospectionL2Timestamp>
-      <IntrospectionL3Timestamp>2024-01-10.07:49:07</IntrospectionL3Timestamp>
+      <IntrospectionL1Timestamp>2024-02-03.01:22:42</IntrospectionL1Timestamp>
+      <IntrospectionL2Timestamp>2024-02-03.01:22:42</IntrospectionL2Timestamp>
+      <IntrospectionL3Timestamp>2024-02-03.01:22:42</IntrospectionL3Timestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
-      <ModifiedTimestamp>2024-01-10.07:49:07</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-02-03.01:22:42</ModifiedTimestamp>
       <ObjectId>115</ObjectId>
     </schema>
     <schema id="11" parent="1" name="DGPDB_INT">
@@ -100,9 +100,9 @@
     <schema id="30" parent="1" name="PUBLIC">
       <CreatedTimestamp>2021-09-28.08:01:29</CreatedTimestamp>
       <DbLinksHash>777420962</DbLinksHash>
-      <IntrospectionL1Timestamp>2024-01-10.07:49:07</IntrospectionL1Timestamp>
-      <IntrospectionL2Timestamp>2024-01-10.07:49:07</IntrospectionL2Timestamp>
-      <IntrospectionL3Timestamp>2024-01-10.07:49:07</IntrospectionL3Timestamp>
+      <IntrospectionL1Timestamp>2024-02-03.01:21:05</IntrospectionL1Timestamp>
+      <IntrospectionL2Timestamp>2024-02-03.01:21:05</IntrospectionL2Timestamp>
+      <IntrospectionL3Timestamp>2024-02-03.01:21:05</IntrospectionL3Timestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
       <ModifiedTimestamp>2023-12-26.00:36:15</ModifiedTimestamp>
       <ObjectId>1</ObjectId>
@@ -296,7 +296,7 @@
     </sequence>
     <table id="87" parent="10" name="DUMMY_TABLE">
       <CreatedTimestamp>2024-01-10.07:42:16</CreatedTimestamp>
-      <DetailsLevel>2</DetailsLevel>
+      <DetailsLevel>3</DetailsLevel>
       <ModifiedTimestamp>2024-01-10.07:49:07</ModifiedTimestamp>
       <ObjectId>77898</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
@@ -374,7 +374,7 @@
     <table id="98" parent="10" name="PROPERTY_IMAGES">
       <CreatedTimestamp>2024-01-08.21:36:16</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-01-09.03:22:57</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-02-03.01:22:42</ModifiedTimestamp>
       <ObjectId>77859</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
@@ -60469,19 +60469,19 @@
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="7667" parent="98" name="PHOTO">
-      <DataType>BLOB|0s</DataType>
+    <column id="7667" parent="98" name="PICTURE_ID">
+      <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="7668" parent="98" name="PICTURE_ID">
-      <DataType>NUMBER(*)|0s</DataType>
+    <column id="7668" parent="98" name="IS_PRIMARY">
+      <DataType>NUMBER(1 digit)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="7669" parent="98" name="IS_PRIMARY">
-      <DataType>NUMBER(1 digit)|0s</DataType>
-      <DefaultExpression>0</DefaultExpression>
+    <column id="7669" parent="98" name="PHOTO">
+      <DataType>VARCHAR2(250 byte)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>

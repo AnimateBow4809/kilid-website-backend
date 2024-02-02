@@ -2,19 +2,15 @@ package Main.DAO.serviceImplementations;
 
 import Main.DAO.repos.PictureRepo;
 import Main.DAO.serviceInterfaces.PictureService;
-import Main.Utils.ImageUtils;
 import Main.classes.Picture;
 import Main.classes.PictureKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.zip.DataFormatException;
 
 @Service
 @Transactional
@@ -50,26 +46,22 @@ public class PictureServiceImpl implements PictureService {
     }
 
     @Override
-    public String uploadImage(MultipartFile imageFile,PictureKey key) throws IOException {
-        var imageToSave = Picture.builder()
-                .picture(ImageUtils.compressImage(imageFile.getBytes()))
-                .pictureKey(key)
-                .build();
+    public String uploadImage(String imageUrl,PictureKey key) throws IOException {
+        var imageToSave = new Picture (key, imageUrl, true);
         addPicture(imageToSave);
         return "completed";
     }
 
     @Override
-    public byte[] downloadImage(Long id, Long pid) {
+    public String downloadImage(Long id, Long pid) {
         Optional<Picture> dbImage = Optional.ofNullable(repo.findByPictureKey(id, pid));
         return dbImage.map(image -> {
             try {
-                return ImageUtils.decompressImage(image.getPicture());
-            } catch (DataFormatException | IOException exception) {
+                return image.getPicture();
+            } catch (Exception exception) {
                 throw new RuntimeException();
             }
-        }).orElse(null);
-    }
+        }).orElse(null);    }
 
     @Override
     public void removePictureByPictureKeyPropertyID(Long id) {

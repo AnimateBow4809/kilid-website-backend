@@ -20,9 +20,8 @@ public class Picture {
     @EmbeddedId
     private PictureKey pictureKey;
 
-    @Lob
     @Column(name = "photo")
-    private byte[] picture;
+    private String picture;
 
     @Column(name = "is_primary")
     private boolean isPrimary;
@@ -31,17 +30,12 @@ public class Picture {
 
     }
 
-    public Picture(PictureKey pictureKey, byte[] picture, boolean isPrimary) {
+    public Picture(PictureKey pictureKey, String picture, boolean isPrimary) {
         this.pictureKey = pictureKey;
         this.picture = picture;
         this.isPrimary = isPrimary;
     }
 
-    public void buildImage(MultipartFile file) throws IOException {
-        picture=file.getBytes();
-    }
-    public String generateBase64Image() {
-        return Base64.getEncoder().encodeToString(this.picture);
-    }
+
 
 }

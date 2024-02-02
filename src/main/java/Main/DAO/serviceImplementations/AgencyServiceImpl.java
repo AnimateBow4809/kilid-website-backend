@@ -29,11 +29,7 @@ public class AgencyServiceImpl implements AgencyService {
     @Override
     public RealStateAgency findById(Long id) {
         Optional<RealStateAgency>agency=repo.findById(id);
-        if (agency.isPresent()) {
-            return agency.get();
-        }else {
-            throw new RuntimeException();
-        }
+        return agency.orElse(null);
     }
 
     @Override

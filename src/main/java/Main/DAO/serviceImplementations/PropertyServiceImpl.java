@@ -54,7 +54,7 @@ public class PropertyServiceImpl implements PropertyService {
         Optional<Property> property = repo.findById(id);
         if (property.isPresent())
             return property.get();
-        else throw new RuntimeException();
+        else throw new RuntimeException("property not found :(");
     }
 
     @Override

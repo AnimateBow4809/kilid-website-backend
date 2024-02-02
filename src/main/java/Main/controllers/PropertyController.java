@@ -97,6 +97,9 @@ public class PropertyController {
         propertyService.updateProperty(propertyCombiner.getProperty());
         propertyConditionService.updatePropertyCondition(propertyCombiner.getCondition());
         propertyFacilityService.updatePropertyFacility(propertyCombiner.getFacility());
+        for (Picture p: propertyCombiner.getPicture()) {
+            pictureService.addPicture(p);
+        }
         //TODO: setup picture support
         return propertyCombiner;
     }

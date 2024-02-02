@@ -15,9 +15,9 @@ public interface PictureService {
 
     public Picture findPrimary(Long id);
 
-    public String uploadImage(MultipartFile imageFile, PictureKey pictureKey) throws IOException;
+    public String uploadImage(String imageUrl,PictureKey key) throws IOException;
 
-    public byte[] downloadImage(Long id,Long pid);
+    public String downloadImage(Long id,Long pid);
     public void removePictureByPictureKeyPropertyID(Long id);
 
 }
