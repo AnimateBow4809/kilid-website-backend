@@ -33,11 +33,11 @@
     <schema id="10" parent="1" name="DB_PROJ">
       <CreatedTimestamp>2024-01-06.21:00:16</CreatedTimestamp>
       <Current>1</Current>
-      <IntrospectionL1Timestamp>2024-02-03.01:22:42</IntrospectionL1Timestamp>
-      <IntrospectionL2Timestamp>2024-02-03.01:22:42</IntrospectionL2Timestamp>
-      <IntrospectionL3Timestamp>2024-02-03.01:22:42</IntrospectionL3Timestamp>
+      <IntrospectionL1Timestamp>2024-02-04.01:24:15</IntrospectionL1Timestamp>
+      <IntrospectionL2Timestamp>2024-02-04.01:24:15</IntrospectionL2Timestamp>
+      <IntrospectionL3Timestamp>2024-02-04.01:24:15</IntrospectionL3Timestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
-      <ModifiedTimestamp>2024-02-03.01:22:42</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-02-04.01:24:13</ModifiedTimestamp>
       <ObjectId>115</ObjectId>
     </schema>
     <schema id="11" parent="1" name="DGPDB_INT">
@@ -353,7 +353,7 @@
     <table id="95" parent="10" name="PROPERTY">
       <CreatedTimestamp>2024-01-08.20:17:41</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-01-10.02:32:17</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-02-04.01:24:13</ModifiedTimestamp>
       <ObjectId>77853</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
@@ -60205,17 +60205,17 @@
       <Position>1</Position>
     </column>
     <column id="7617" parent="95" name="TITLE">
-      <DataType>VARCHAR2(25 byte)|0s</DataType>
+      <DataType>VARCHAR2(250 byte)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="7618" parent="95" name="CITY">
-      <DataType>VARCHAR2(25 byte)|0s</DataType>
+      <DataType>VARCHAR2(250 byte)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="7619" parent="95" name="ZONE">
-      <DataType>VARCHAR2(25 byte)|0s</DataType>
+      <DataType>VARCHAR2(250 byte)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
@@ -60225,7 +60225,7 @@
       <Position>5</Position>
     </column>
     <column id="7621" parent="95" name="USAGE">
-      <DataType>VARCHAR2(25 byte)|0s</DataType>
+      <DataType>VARCHAR2(250 byte)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
