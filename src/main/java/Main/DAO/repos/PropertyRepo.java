@@ -75,9 +75,10 @@ public interface PropertyRepo extends JpaRepository<Property, Long> {
             "AND ( :#{#pfInput.remoteControlledDoor} = '0' OR pf.remoteControlledDoor = :#{#pfInput.remoteControlledDoor} ) " +
             "AND ( :#{#pcInput.cooperative} = '0' OR pc.cooperative = :#{#pcInput.cooperative} ) " +
             "AND ( :#{#pcInput.barter} = '0' OR pc.barter = :#{#pcInput.barter} ) " +
-            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and p.age<=:maxAge " +
-            "and p.area>=:minArea and p.area<=:maxArea and lower(p.usage)=lower(:usage) " +
-            "and lower(p.zone) like lower(concat('%',:zone,'%')) and lower(p.city) like lower(concat('%',:city,'%')) and type(p)=:pType ")
+            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and (p.age<=:maxAge or :maxAge=0) " +
+            "and p.area>=:minArea and (p.area<=:maxArea or :maxArea=0) and (lower(p.usage)=lower(:usage) or :usage='') " +
+            "and (lower(p.zone) like lower(concat('%',:zone,'%')) or :zone='') and (lower(p.city) like lower(concat('%',:city,'%')) or :city='') " +
+            " and type(p)=:pType ")
     List<Property> joinOnPropertyConditionAndFacilities(PropertyCondition pcInput,
                                                         PropertyFacility pfInput, Long minAge, Long maxAge
             , Long numberOfRooms, Integer minArea, Integer maxArea,
@@ -118,10 +119,10 @@ public interface PropertyRepo extends JpaRepository<Property, Long> {
             "AND ( :#{#pfInput.remoteControlledDoor} = '0' OR pf.remoteControlledDoor = :#{#pfInput.remoteControlledDoor} ) " +
             "AND ( :#{#pcInput.cooperative} = '0' OR pc.cooperative = :#{#pcInput.cooperative} ) " +
             "AND ( :#{#pcInput.barter} = '0' OR pc.barter = :#{#pcInput.barter} ) " +
-            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and p.age<=:maxAge " +
-            "and p.area>=:minArea and p.area<=:maxArea and lower(p.usage)=lower(:usage) " +
-            "and lower(p.zone) like lower(concat('%',:zone,'%')) and lower(p.city) like lower(concat('%',:city,'%')) " +
-            "and type(p)=:pType and p.sellCost>=:minSellCost and p.sellCost<=:maxSellCost")
+            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and (p.age<=:maxAge or :maxAge=0) " +
+            "and p.area>=:minArea and (p.area<=:maxArea or :maxArea=0) and (lower(p.usage)=lower(:usage) or :usage='') " +
+            "and (lower(p.zone) like lower(concat('%',:zone,'%')) or :zone='') and (lower(p.city) like lower(concat('%',:city,'%')) or :city='') " +
+            "and type(p)=:pType and p.sellCost>=:minSellCost and (p.sellCost<=:maxSellCost  or :maxSellCost=0)")
     List<Property> joinOnPropertyConditionForSaleAndFacilities(PropertyCondition pcInput,
                                                                PropertyFacility pfInput, Long minAge, Long maxAge,
                                                                Long numberOfRooms, Integer minArea, Integer maxArea,
@@ -156,11 +157,11 @@ public interface PropertyRepo extends JpaRepository<Property, Long> {
             "AND ( :#{#pfInput.remoteControlledDoor} = '0' OR pf.remoteControlledDoor = :#{#pfInput.remoteControlledDoor} ) " +
             "AND ( :#{#pcInput.cooperative} = '0' OR pc.cooperative = :#{#pcInput.cooperative} ) " +
             "AND ( :#{#pcInput.barter} = '0' OR pc.barter = :#{#pcInput.barter} ) " +
-            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and p.age<=:maxAge " +
-            "and p.area>=:minArea and p.area<=:maxArea and lower(p.usage)=lower(:usage) " +
-            "and lower(p.zone) like lower(concat('%',:zone,'%')) and lower(p.city) like lower(concat('%',:city,'%')) " +
-            "and p.monthlyRent>=:minMonthlyRent and p.monthlyRent<=:maxMonthlyRent " +
-            "and p.preCost>=:minPreCostMortgage and p.preCost<=:maxPreCostMortgage")
+            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and (p.age<=:maxAge or :maxAge=0) " +
+            "and p.area>=:minArea and (p.area<=:maxArea or :maxArea=0) and (lower(p.usage)=lower(:usage) or :usage='') " +
+            "and (lower(p.zone) like lower(concat('%',:zone,'%')) or :zone='') and (lower(p.city) like lower(concat('%',:city,'%')) or :city='') " +
+            "and p.monthlyRent>=:minMonthlyRent and (p.monthlyRent<=:maxMonthlyRent or :maxMonthlyRent=0 ) " +
+            "and p.preCost>=:minPreCostMortgage and (p.preCost<=:maxPreCostMortgage or :maxPreCostMortgage=0)")
     List<Property> joinOnPropertyConditionForRentAndFacilities(PropertyCondition pcInput,
                                                                PropertyFacility pfInput, Long minAge, Long maxAge,
                                                                Long numberOfRooms, Integer minArea, Integer maxArea,
@@ -196,10 +197,10 @@ public interface PropertyRepo extends JpaRepository<Property, Long> {
             "AND ( :#{#pfInput.remoteControlledDoor} = '0' OR pf.remoteControlledDoor = :#{#pfInput.remoteControlledDoor} ) " +
             "AND ( :#{#pcInput.cooperative} = '0' OR pc.cooperative = :#{#pcInput.cooperative} ) " +
             "AND ( :#{#pcInput.barter} = '0' OR pc.barter = :#{#pcInput.barter} ) " +
-            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and p.age<=:maxAge " +
-            "and p.area>=:minArea and p.area<=:maxArea and lower(p.usage)=lower(:usage) " +
-            "and lower(p.zone) like lower(concat('%',:zone,'%')) and lower(p.city) like lower(concat('%',:city,'%')) " +
-            "and p.mortgageCost>=:minPreCostMortgage and p.mortgageCost<=:maxPreCostMortgage")
+            "And p.numberOfRoom >= :numberOfRooms and p.age>=:minAge and (p.age<=:maxAge or :maxAge=0) " +
+            "and p.area>=:minArea and (p.area<=:maxArea or :maxArea=0) and (lower(p.usage)=lower(:usage) or :usage='') " +
+            "and (lower(p.zone) like lower(concat('%',:zone,'%')) or :zone='') and (lower(p.city) like lower(concat('%',:city,'%')) or :city='') " +
+            "and p.mortgageCost>=:minPreCostMortgage and (p.mortgageCost<=:maxPreCostMortgage or :maxPreCostMortgage=0 )")
     List<Property> joinOnPropertyForMortgageConditionAndFacilities(PropertyCondition pcInput,
                                                                    PropertyFacility pfInput, Long minAge, Long maxAge,
                                                                    Long numberOfRooms, Integer minArea, Integer maxArea,
