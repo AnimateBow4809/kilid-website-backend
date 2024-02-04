@@ -44,6 +44,18 @@ public class PictureServiceImpl implements PictureService {
 
         return picture.orElseGet(() -> pictures.get(0));
     }
+    @Override
+    public Long findNextBiggestId(Picture picture){
+       List<Picture>pictures= repo.getPicturesById(picture.getPictureKey().getPictureID());
+       Long ans= Long.valueOf(1);
+        for (int i = 0; i < pictures.size(); i++) {
+            if (pictures.get(i).getPictureKey().getPictureID()>ans){
+                ans=pictures.get(i).getPictureKey().getPictureID();
+            }
+        }
+        return ans+1;
+    }
+
 
     @Override
     public String uploadImage(String imageUrl,PictureKey key) throws IOException {

@@ -7,6 +7,7 @@ import Main.DAO.serviceInterfaces.PropertyService;
 import Main.Utils.Filter;
 import Main.Utils.PropertyCombiner;
 import Main.classes.Picture;
+import Main.classes.PictureKey;
 import Main.classes.Property;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -140,7 +141,8 @@ public class PropertyController {
         propertyConditionService.addPropertyCondition(propertyCombiner.getCondition());
         try {
             for (Picture p : propertyCombiner.getPicture()) {
-                p.getPictureKey().setPropertyID(propertyCombiner.getProperty().getPropertyId());
+                p.setPictureKey(new PictureKey(propertyCombiner.getProperty().getPropertyId(),
+                        pictureService.findNextBiggestId(p)));
                 pictureService.addPicture(p);
             }
         }catch (Exception ignored){}

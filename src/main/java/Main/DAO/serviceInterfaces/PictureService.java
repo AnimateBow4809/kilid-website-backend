@@ -15,7 +15,9 @@ public interface PictureService {
 
     public Picture findPrimary(Long id);
 
-    public String uploadImage(String imageUrl,PictureKey key) throws IOException;
+    Long findNextBiggestId(Picture picture);
+
+    public String uploadImage(String imageUrl, PictureKey key) throws IOException;
 
     public String downloadImage(Long id,Long pid);
     public void removePictureByPictureKeyPropertyID(Long id);

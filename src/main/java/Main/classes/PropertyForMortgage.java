@@ -6,13 +6,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.math.BigInteger;
+
 @Data
 @Entity
 @DiscriminatorValue("2")
 public class PropertyForMortgage extends Property{
 
     @Column(name = "mortgage_cost")
-    private Integer mortgageCost;
+    private BigInteger mortgageCost;
 
     public PropertyForMortgage() {
     }

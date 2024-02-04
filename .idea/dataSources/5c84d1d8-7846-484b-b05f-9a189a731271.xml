@@ -33,11 +33,11 @@
     <schema id="10" parent="1" name="DB_PROJ">
       <CreatedTimestamp>2024-01-06.21:00:16</CreatedTimestamp>
       <Current>1</Current>
-      <IntrospectionL1Timestamp>2024-02-04.01:24:15</IntrospectionL1Timestamp>
-      <IntrospectionL2Timestamp>2024-02-04.01:24:15</IntrospectionL2Timestamp>
-      <IntrospectionL3Timestamp>2024-02-04.01:24:15</IntrospectionL3Timestamp>
+      <IntrospectionL1Timestamp>2024-02-05.02:26:54</IntrospectionL1Timestamp>
+      <IntrospectionL2Timestamp>2024-02-05.02:26:54</IntrospectionL2Timestamp>
+      <IntrospectionL3Timestamp>2024-02-05.02:26:54</IntrospectionL3Timestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
-      <ModifiedTimestamp>2024-02-04.01:24:13</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-02-05.02:26:53</ModifiedTimestamp>
       <ObjectId>115</ObjectId>
     </schema>
     <schema id="11" parent="1" name="DGPDB_INT">
@@ -353,7 +353,7 @@
     <table id="95" parent="10" name="PROPERTY">
       <CreatedTimestamp>2024-01-08.20:17:41</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-02-04.01:24:13</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-02-05.02:26:53</ModifiedTimestamp>
       <ObjectId>77853</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
@@ -60252,19 +60252,19 @@
       <Position>11</Position>
     </column>
     <column id="7627" parent="95" name="MORTGAGE_COST">
-      <DataType>NUMBER(*)|0s</DataType>
+      <DataType>NUMBER(38 digit)|0s</DataType>
       <Position>12</Position>
     </column>
     <column id="7628" parent="95" name="SELL_COST">
-      <DataType>NUMBER(*)|0s</DataType>
+      <DataType>NUMBER(38 digit)|0s</DataType>
       <Position>13</Position>
     </column>
     <column id="7629" parent="95" name="PRE_COST">
-      <DataType>NUMBER(*)|0s</DataType>
+      <DataType>NUMBER(38 digit)|0s</DataType>
       <Position>14</Position>
     </column>
     <column id="7630" parent="95" name="MONTHLY_RENT">
-      <DataType>NUMBER(*)|0s</DataType>
+      <DataType>NUMBER(38 digit)|0s</DataType>
       <Position>15</Position>
     </column>
     <foreign-key id="7631" parent="95" name="PROPERTY_REAL_ESTATE_AGENCY_AGENCY_ID_FK">
