@@ -128,4 +128,9 @@ public class PropertyServiceImpl implements PropertyService {
         List<Property> properties = repo.showAllProperties();
         return properties;
     }
+
+    @Override
+    public List<Property> getPropertyByName(String name) {
+        return repo.findByName(name);
+    }
 }

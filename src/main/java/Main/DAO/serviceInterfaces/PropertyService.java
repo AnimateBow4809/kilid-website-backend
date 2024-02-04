@@ -34,4 +34,6 @@ public interface PropertyService {
     public List<Property> findByFiler(Filter filter);
 
     List<Property> getAll();
+
+    List<Property> getPropertyByName(String name);
 }

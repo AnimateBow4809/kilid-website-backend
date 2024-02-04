@@ -98,6 +98,7 @@ public class PropertyController {
         propertyConditionService.updatePropertyCondition(propertyCombiner.getCondition());
         propertyFacilityService.updatePropertyFacility(propertyCombiner.getFacility());
         for (Picture p: propertyCombiner.getPicture()) {
+            p.getPictureKey().setPropertyID(propertyCombiner.getProperty().getPropertyId());
             pictureService.addPicture(p);
         }
         //TODO: setup picture support
@@ -114,6 +115,19 @@ public class PropertyController {
         return "deleted";
     }
 
+    @GetMapping("/search/{name}")
+    public  List<PropertyCombiner> getPropertyWithSearch(@PathVariable String name){
+        propertyCombiners.clear();
+        List<Property>properties=propertyService.getPropertyByName(name);
+        for (Property property:properties) {
+            propertyCombiners.add(new PropertyCombiner
+                    (property, propertyFacilityService.getAllPropertyFacilityById(property.getPropertyId())
+                            ,propertyConditionService.getAllPropertyConditionById(property.getPropertyId()),
+                            pictureService.getPicturesById(property.getPropertyId())));
+        }
+        return propertyCombiners;
+    }
+
     @PostMapping("/add")
     public PropertyCombiner addProperty(@RequestBody PropertyCombiner propertyCombiner){
         System.out.println(propertyCombiner);
@@ -126,6 +140,7 @@ public class PropertyController {
         propertyConditionService.addPropertyCondition(propertyCombiner.getCondition());
         try {
             for (Picture p : propertyCombiner.getPicture()) {
+                p.getPictureKey().setPropertyID(propertyCombiner.getProperty().getPropertyId());
                 pictureService.addPicture(p);
             }
         }catch (Exception ignored){}

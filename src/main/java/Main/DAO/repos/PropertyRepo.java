@@ -208,4 +208,12 @@ public interface PropertyRepo extends JpaRepository<Property, Long> {
                                                                    Integer maxPreCostMortgage);
 
     List<Property>findByAgencyID(Long agencyID);
+
+
+    @Query("select p from Property p where " +
+            "lower(p.zone) like lower(concat('%',:name,'%')) " +
+            "OR lower(p.title) like lower(concat('%',:name,'%')) " +
+            "OR lower(p.city) like lower(concat('%',:name,'%')) ")
+    List<Property>findByName(String name);
+
 }
